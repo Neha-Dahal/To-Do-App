@@ -19,7 +19,7 @@ router.post("/save-to-do", function (req, res, next) {
   res.redirect("/");
 });
 router.get("/delete-to-do/:id", function (req, res, next) {
-  console.log(req.params);
+  //console.log(req.params);
   const index = todos.findIndex((todo) => todo._id === req.params.id);
   todos.splice(index, 1);
   res.redirect("/");
