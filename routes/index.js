@@ -18,8 +18,10 @@ router.post("/save-to-do", function (req, res, next) {
   todos.push({ ...req.body, _id: `00${todos.length}` });
   res.redirect("/");
 });
-router.get("/delete-to-do/:index", function (req, res, next) {
-  todos.splice(req.params.index, 1);
+router.get("/delete-to-do/:id", function (req, res, next) {
+  console.log(req.params);
+  const index = todos.findIndex((todo) => todo._id === req.params.id);
+  todos.splice(index, 1);
   res.redirect("/");
 });
 router.get("/open-update-form/:id", function (req, res, next) {
@@ -28,8 +30,8 @@ router.get("/open-update-form/:id", function (req, res, next) {
 });
 
 router.post("/update-to-do/:id", function (req, res, next) {
-  console.log(req.params);
-  console.log(req.body);
+  //console.log(req.params);
+  //console.log(req.body);
   const index = todos.findIndex((todo) => todo._id === req.params.id);
   todos.splice(index, 1, { ...req.body, _id: req.params.id });
   res.redirect("/");

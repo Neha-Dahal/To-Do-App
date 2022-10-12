@@ -20,11 +20,13 @@
       <div class="card-body">
         <h5 class="card-title"><%= todo.title %></h5>
         <p class="card-text"><%= todo.description %></p>
-        <!-- <h5 class="card-text"><%= todo._id %></h5> -->
+        <h5 class="card-text"><%= todo._id %></h5>
         <a href="/open-update-form/<%= todo._id%>" class="btn btn-primary"
           >Edit</a
         >
-        <a href="/delete-to-do/<%= index %>" class="btn btn-danger">Delete</a>
+        <a href="/delete-to-do/<%= todo._id %>" class="btn btn-danger"
+          >Delete</a
+        >
       </div>
     </div>
     <% } ) %>
